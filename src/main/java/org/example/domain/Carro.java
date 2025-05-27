@@ -15,13 +15,13 @@ public class Carro extends Veiculo {
         this.tipCombustivel = tipCombustivel;
     }
 
-    public Carro(String modelo, String fabricante, int ano, double preco,String cor, int quantPortas, TipoCombustivel tipCombustivel) {
+    public Carro(String modelo, String fabricante, int ano, double preco, String cor, int quantPortas, TipoCombustivel tipCombustivel) {
         super(modelo, fabricante, ano, preco,cor, "CARRO");
         this.quantPortas = quantPortas;
         this.tipCombustivel = tipCombustivel;
     }
 
-    public Carro(String modelo, String fabricante, Double preco, int quantidadePortas, TipoCombustivel tipoCombustivel) {
+    public Carro(String modelo, String fabricante, Double preco, String cor, int quantPortas, TipoCombustivel tipoCombustivel) {
     }
 
     public int getQuantPortas() {
@@ -47,5 +47,14 @@ public class Carro extends Veiculo {
                 carroCadastroForm.quantidadePortas(), TipoCombustivel.fromString(carroCadastroForm.tipoCombustivel()));
     }
 
-
+    public Carro atualizaDados(CarroCadastroForm carroCadastroForm) {
+        if (carroCadastroForm.modelo() != null) setModelo(carroCadastroForm.modelo());
+        if (carroCadastroForm.fabricante() != null) setFabricante(carroCadastroForm.fabricante());
+        if (carroCadastroForm.ano() != null) setAno(carroCadastroForm.ano());
+        if (carroCadastroForm.preco() != null) setPreco(carroCadastroForm.preco());
+        if (carroCadastroForm.quantidadePortas() != null) setQuantPortas(quantPortas);
+        if (tipCombustivel != null)
+            setTipCombustivel(tipCombustivel);
+        return this;
+    }
 }

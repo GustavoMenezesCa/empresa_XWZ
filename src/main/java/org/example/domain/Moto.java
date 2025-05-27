@@ -6,12 +6,12 @@ import org.example.web.dto.MotoCadastroForm;
 public class Moto extends Veiculo {
     private Integer cilindradas;
 
-    public Moto(){}
-    public Moto(Integer cilindradas) {
+    public Moto (){}
+    public Moto(int cilindradas) {
         this.cilindradas = cilindradas;
     }
 
-    public Moto(String modelo, String fabricante, int ano, double preco, String cor, Integer cilindradas) {
+    public Moto(String modelo, String fabricante, int ano, double preco,String cor, Integer cilindradas) {
         super(modelo, fabricante, ano, preco, cor, "MOTO");
         this.cilindradas = cilindradas;
     }
@@ -29,6 +29,14 @@ public class Moto extends Veiculo {
                 motoCadastroForm.ano(), motoCadastroForm.preco(), motoCadastroForm.cor(),
                 motoCadastroForm.cilindradas());
     }
-
+   
+    public Moto atualizaDados(MotoCadastroForm motoCadastroForm) {
+        if (motoCadastroForm.modelo() != null) setModelo(motoCadastroForm.modelo());
+        if (motoCadastroForm.fabricante() != null) setFabricante(motoCadastroForm.fabricante());
+        if (motoCadastroForm.ano() != null) setAno(motoCadastroForm.ano());
+        if (motoCadastroForm.preco() != null) setPreco(motoCadastroForm.preco());
+        if (motoCadastroForm.cilindradas() != null) setCilindradas(motoCadastroForm.cilindradas());
+        return this;
+    }
 }
 
